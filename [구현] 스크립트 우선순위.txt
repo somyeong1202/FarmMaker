@@ -16,12 +16,12 @@
   - 인벤토리 : 농작물, 동물, 도구 임시 보관
 
 <시간>
-- TimeManager : Skybox 및 Directional Light를 관리하는 스크립트.
+- TimeKeeper : Skybox 및 Directional Light를 관리하는 스크립트.
 
 [콘텐츠 시스템]
 <경작 및 포획>
 - HarvestManager : 농장 내 경작을 다루기 위한 스크립트.					>> 엑셀 파일 참조.
-- AnimalManager : 포획 전용 동물 (양, 소, 돼지, 닭 등)을 다루기 위한 스크립트.	>> 엑셀 파일 참조.
+- AnimalManager : 포획 전용 동물 (양, 소, 돼지, 닭 등)을 다루기 위한 스크립트.		>> 엑셀 파일 참조.
 - EnemyManager : 밤에 등장하는 몬스터들을 관리하기 위한 스크립트.			>> 엑셀 파일 참조.
 
 <건축>
