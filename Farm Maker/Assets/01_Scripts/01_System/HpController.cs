@@ -34,7 +34,6 @@ public class HpController : MonoBehaviour
         {
             yield return new WaitForSeconds(0.1f);
             Hp += 0.1f;
-
         }
 
         if(Hp > MaxHp)

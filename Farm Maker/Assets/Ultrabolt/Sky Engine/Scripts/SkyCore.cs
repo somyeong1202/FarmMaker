@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+	
 
 namespace Ultrabolt.SkyEngine
 {
@@ -53,7 +54,7 @@ namespace Ultrabolt.SkyEngine
 		private float lowCloudDensity, highCloudDensity, lightValue;
 
 		private float sunIntensity, moonIntensity;
-		private GameTime lastTimeState;
+		public GameTime lastTimeState;
 		#endregion
 
 		public void SetWeather(int value) => weather = (Weather)value;
@@ -217,6 +218,5 @@ namespace Ultrabolt.SkyEngine
 			RenderSettings.ambientGroundColor = Color.Lerp(RenderSettings.ambientGroundColor, bottom, t);
 		}
 	}
-
-	public enum GameTime { Morning, MidNoon, Evening, Night }
+    public enum GameTime { Morning, MidNoon, Evening, Night }
 }

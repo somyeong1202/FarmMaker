@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    HpController hpController;
+    public int level;
+
+    public float reqExp; //레벨업 까지 필요 경험치
+    public float exp; //현재 경험치 양
+    private void Start()
     {
-        
+        hpController = GetComponent<HpController>();
+
+        //hpController.MaxHp += 5 * (level - 1);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GetExp(float value)
     {
-        
+        exp += value;
+        while(exp >= reqExp)
+        {
+            LevelUp();
+        }
+    }
+
+    void LevelUp()
+    {
+        exp -= reqExp;
+        reqExp += 50f;
+
+        level++;
+
+        hpController.LevelUp();
+
+        PlayerController player = GetComponent<PlayerController>();
+        player.maxStamina += 10;
     }
 }

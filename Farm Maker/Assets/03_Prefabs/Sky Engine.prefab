@@ -5496,6 +5496,7 @@ GameObject:
   - component: {fileID: 2023327486866696907}
   - component: {fileID: 4007739525378000177}
   - component: {fileID: 8373863633549337508}
+  - component: {fileID: 1608942393532387737}
   m_Layer: 0
   m_Name: Sky Engine
   m_TagString: Untagged
@@ -5613,6 +5614,7 @@ MonoBehaviour:
   dayState: MidNoon
   dayCount: 0
   timeOfDay: 0
+  lastTimeState: 0
 --- !u!114 &4007739525378000177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5639,6 +5641,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 0}
+--- !u!114 &1608942393532387737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7358135279841496059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0671aad06d719b449f984c729695e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkyTime: {fileID: 0}
 --- !u!1 &7949090425356672022
 GameObject:
   m_ObjectHideFlags: 0
