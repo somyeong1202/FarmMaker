@@ -6,7 +6,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     CharacterController cc;
-    public float moveSpeed;
+    public float basicMoveSpeed; //기본 이동 속도
+    private float moveSpeed; //현재 이동 속도
+
+    //달리기 확인
+    bool isRunning;
 
     //회전 스피드(좌우) 상하 회전은 카메라에 적용 예정
     public float rotSpeed;
@@ -26,6 +30,8 @@ public class PlayerController : MonoBehaviour
         cc = GetComponent<CharacterController>();
         camera.transform.parent = CamPos;
         camera.transform.localPosition = Vector3.zero;
+
+        moveSpeed = basicMoveSpeed;
     }
     private void Update()
     {
@@ -47,14 +53,26 @@ public class PlayerController : MonoBehaviour
             jumpAble = true;
         }
 
+        //점프
         if (Input.GetKey(KeyCode.Space) && jumpAble)
         {
             yVelocity = jumpPower;
             jumpAble = false;
         }
 
-       
-        yVelocity += gravity * Time.deltaTime;
+        //달리기
+        if(Input.GetKey(KeyCode.LeftControl) && !isRunning)
+        {
+            moveSpeed *= 1.5f;
+            isRunning = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl)) //달리기 멈춤
+        {
+            moveSpeed = basicMoveSpeed;
+            isRunning = false;
+        }
+
+        yVelocity += gravity * Time.deltaTime; //중력 적용, 떨어지는 속도
 
         dir.y = yVelocity;
 

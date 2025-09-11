@@ -10,7 +10,7 @@ public class SkyController : MonoBehaviour
     private void Update()
     {
         vector = playerPos.position;
-        vector.y = 0;
+        vector.y = transform.position.y;
 
         transform.position = vector;
     }

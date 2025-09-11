@@ -5611,8 +5611,8 @@ MonoBehaviour:
   timeSpeed: 1
   dayLength: 120
   dayState: MidNoon
-  dayCount: 11
-  timeOfDay: 0.16313647
+  dayCount: 0
+  timeOfDay: 0
 --- !u!114 &4007739525378000177
 MonoBehaviour:
   m_ObjectHideFlags: 0
