@@ -7,7 +7,7 @@ public class SkyController : MonoBehaviour
 {
     public Transform playerPos;
     SkyCore skyCore;
-    public float skySpeed;
+    private float skySpeed;
     bool isSleepTime = false;
     private int sleepDayCount;
     Vector3 vector;
@@ -15,6 +15,8 @@ public class SkyController : MonoBehaviour
     private void Start()
     {
         skyCore = GetComponent<SkyCore>();
+
+        skySpeed = skyCore.timeSpeed; //시간이 흐르는 초기 스피드 구하기
     }
     private void Update()
     {

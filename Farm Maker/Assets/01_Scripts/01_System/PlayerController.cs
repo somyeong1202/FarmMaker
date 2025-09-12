@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Ultrabolt.SkyEngine;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -53,6 +54,9 @@ public class PlayerController : MonoBehaviour
     //스태미너 소모되는 량;
     private float useStamina;
 
+    //스태미너 바
+    public Slider StaminaBar;
+
     //스태미너 피로 상태
     private bool isTired;
     private void Start()
@@ -65,12 +69,15 @@ public class PlayerController : MonoBehaviour
 
         moveSpeed = basicMoveSpeed;
 
-        //stamina = maxStamina;
-        stamina = -14.5f;
+        stamina = maxStamina;
+        //stamina = -14.5f;
 
         state = State.idle;
 
         useStamina = 0.01f;
+
+        StaminaBar.maxValue = maxStamina;
+        StaminaBar.value = stamina;
     }
 
     private void Update()
@@ -116,12 +123,12 @@ public class PlayerController : MonoBehaviour
         }
 
         //달리기
-        if(Input.GetKey(KeyCode.LeftControl) && state != State.run && stamina > 0)
+        if(Input.GetKey(KeyCode.LeftShift) && state != State.run && stamina > 0)
         {
             moveSpeed *= 1.5f;
             state = State.run;
         }
-        else if ((Input.GetKeyUp(KeyCode.LeftControl) || stamina <= 0) && !isTired) //달리기 멈춤
+        else if ((Input.GetKeyUp(KeyCode.LeftShift) || stamina <= 0) && !isTired) //달리기 멈춤
         {
             moveSpeed = basicMoveSpeed;
             state = State.idle;
@@ -161,6 +168,7 @@ public class PlayerController : MonoBehaviour
 
         stamina -= useStamina * Time.deltaTime; //실시간 스태미나 소모
         Debug.Log(stamina);
+        StaminaBar.value = stamina;
 
         if(stamina <= -15f) //스태미너가 -15가 되었을 경우
         {
